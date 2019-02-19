@@ -1,24 +1,15 @@
-import axios from 'axios'
-
 
 export async function hello() {
   return {
     statusCode: 200,
     headers: {
-      'Content-Type': 'text/plain'
+      'Content-Type': 'application/json'
     },
-    body: `Congrats. You just called your first Serverless function`,
+    body: JSON.stringify({ message: 'hello world' }),
   }
 }
 
-export async function call() {
-
-  const response = await axios(`https://httpbin.org/uuid`)
-  return {
-    statusCode: 200,
-    headers: {
-      'Content-Type': 'text/plain'
-    },
-    body: `Got a result: ${response.data.uuid}`,
-  }
+// Having above function as sample, please make this function to return your name
+export async function name() {
+  return null
 }

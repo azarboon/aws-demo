@@ -15,12 +15,12 @@ functions:
           method: get
           path: api/example/hello 
 
-  call:
-    handler: handler.call
+  name:
+    handler: handler.name
     events:
       - http:
           method: get
-          path: api/example/call  
+          path: api/example/name  
 
 # webpack configuration
 custom:
