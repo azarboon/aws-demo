@@ -1,0 +1,37 @@
+service: aws-demo
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: eu-central-1
+
+# functions are defined in here
+functions:       
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          method: get
+          path: api/example/hello 
+
+  call:
+    handler: handler.call
+    events:
+      - http:
+          method: get
+          path: api/example/call  
+
+# webpack configuration
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules:
+      forceExclude:
+        - 'aws-sdk'
+    packager: 'yarn'
+
+# plugins that Serverless framework is using
+plugins:
+  - serverless-webpack
+  - serverless-offline
