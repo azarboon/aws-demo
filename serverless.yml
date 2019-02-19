@@ -1,26 +1,29 @@
-service: aws-demo
+service: backend
 
 provider:
   name: aws
+  stackName: backend-serverless
   runtime: nodejs8.10
   stage: dev
   region: eu-central-1
 
 # functions are defined in here
-functions:       
+functions:
   hello:
     handler: handler.hello
     events:
       - http:
           method: get
-          path: api/example/hello 
+          path: api/example/hello
+          cors: true
 
   name:
     handler: handler.name
     events:
       - http:
           method: get
-          path: api/example/name  
+          path: api/example/name
+          cors: true
 
 # webpack configuration
 custom:
@@ -29,7 +32,6 @@ custom:
     includeModules:
       forceExclude:
         - 'aws-sdk'
-    packager: 'yarn'
 
 # plugins that Serverless framework is using
 plugins:
