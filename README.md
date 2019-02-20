@@ -22,6 +22,14 @@ nvm install v10.0.0
 node -v
 ```
 
+Frmo now on, you are set to continue working in the current shell. Please note that in case you open a new shell, you need to again set the node version to be able to do our tasks properly. You can set the node version by:
+
+```
+nvm use v10.0.0
+```
+
+So, lease do this whenever you would like to contniue our assignments in a new shell.
+
 ### Set up project
 
 5. Clone this repository
